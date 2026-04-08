@@ -1,0 +1,21 @@
+# Python Binance
+python-binance>=1.0.19
+
+# Data processing (versiones compatibles con Python 3.13)
+pandas>=2.2.0
+pandas-ta>=0.3.14b
+numpy>=1.26.0
+
+# Environment
+python-dotenv>=1.0.0
+
+# Async HTTP
+aiohttp>=3.9.0
+
+# Dashboard Web
+flask>=3.0.0
+flask-socketio>=5.3.6
+simple-websocket>=1.0.0
+
+# Gráficos
+plotly>=5.18.0
