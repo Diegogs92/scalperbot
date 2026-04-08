@@ -370,8 +370,12 @@ class TradingBot:
                 await asyncio.sleep(5)  # Check cada 5 segundos
 
             except Exception as e:
-                logger.error(f"Error en el loop principal: {e}")
-                await notifier.notify_error(str(e))
+                import traceback
+                error_trace = traceback.format_exc()
+                logger.error(f"Error en el loop principal:\n{error_trace}")
+                # Enviar los ultimos 500 caracteres del traceback si el mensaje estaba vacío
+                error_msg = f"{type(e).__name__}: {str(e)}\n\n{error_trace[-500:]}"
+                await notifier.notify_error(error_msg)
                 await asyncio.sleep(10)
 
     async def stop(self):
